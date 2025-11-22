@@ -1,4 +1,5 @@
-vim.opt['tabstop'] = 4
+vim.opt.tabstop = 4
+vim.opt.number = true
 
 -- Define your colorscheme preferences
 local filetype_colors = {
