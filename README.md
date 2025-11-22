@@ -20,5 +20,5 @@ Download and unzip LiterationMono Nerd Font from https://www.nerdfonts.com/font-
 ##### Windows
 Select all the ttf files with Mono in the name, right-click, install. Close all instances of Windows terminal, reopen it and right click the title bar, Settings, Defaults, Appearance, Font face, LiterationMono Nerd Font Mono.
 ##### Linux
-`unzip ~/Downloads/LiberationMono.zip -d ~/.fonts`
+`unzip ~/Downloads/LiterationMono.zip -d ~/.fonts`
 
