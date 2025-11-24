@@ -22,3 +22,14 @@ Select all the ttf files with Mono in the name, right-click, install. Close all 
 ##### Linux
 `unzip ~/Downloads/LiterationMono.zip -d ~/.fonts`
 
+### Editing the config
+To source current file: `:source %`  
+To source init.lua: `source ~/.config/nvim/init.lua`  
+To install plugins that haven't been installed yet remember to source init.lua and `:PlugInstall`
+
+### LSP
+`sudo apt install clangd` to install C/C++ language server, for other servers look it up.  
+For clangd (see (here)[https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#clangd]) create symlink to compile_commands.json for your project in the project root directory, example:  
+`ln -s "$(pwd)/build/compile_commands.json" $(pwd)`  
+In neovim `:checkhealth vim.lsp` to check if it's working.  
+Ctrl-] to go to definition, Ctrl-t to return. grr for all references, press enter on one of them to go to that. grn to rename.
