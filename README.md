@@ -29,7 +29,7 @@ To install plugins that haven't been installed yet remember to source init.lua a
 
 ### LSP
 `sudo apt install clangd` to install C/C++ language server, for other servers look it up.  
-For clangd (see (here)[https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#clangd]) create symlink to compile_commands.json for your project in the project root directory, example:  
+For clangd (see [here](https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#clangd)) create symlink to compile_commands.json for your project in the project root directory, example:  
 `ln -s "$(pwd)/build/compile_commands.json" $(pwd)`  
 In neovim `:checkhealth vim.lsp` to check if it's working.  
 Ctrl-] to go to definition, Ctrl-t to return. grr for all references, press enter on one of them to go to that. grn to rename.
