@@ -7,6 +7,9 @@ vim.api.nvim_create_user_command('W', 'w', {})
 vim.api.nvim_create_user_command('Qa', 'qa', {})
 vim.api.nvim_create_user_command('Q', 'q', {})
 
+-- Press Esc to get rid of the last search pattern.
+vim.keymap.set('n', '<Esc>', ':let @/=""<CR>', {silent=true, noremap=true})
+
 -- Define your colorscheme preferences
 local filetype_colors = {
   markdown = "default",
