@@ -1,13 +1,8 @@
 # nvim
-neovim config based on https://github.com/BreadOnPenguins/nvim
-### Side note: colour schemes
-The colour scheme of neovim affects what colour codes the program sends to the terminal emulator, and the colour scheme of the terminal emulator affects how those codes look on screen.  
-The default colour scheme in neovim sucks, which isn't the fault of the terminal emulator although it looks worse in the Windows Terminal (and in gnome-terminal run from WSL) than in gnome-terminal in Mint for example.  
-The colour scheme can be set from within neovim with `:colorscheme <insert color scheme>` or you can tab after `:colorscheme` to see the list of options.
-### Prerequisites for vim-plug
-`sudo apt install git curl`
+neovim config
 ### Install vim-plug
 ```
+sudo apt install git curl
 curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
@@ -24,8 +19,7 @@ Select all the ttf files with Mono in the name, right-click, install. Close all 
 
 ### Editing the config
 To source current file: `:source %`  
-To source init.lua: `source ~/.config/nvim/init.lua`  
-To install plugins that haven't been installed yet remember to source init.lua and `:PlugInstall`
+To install plugins that haven't been installed yet remember to source init.lua and run `:PlugInstall`
 
 ### LSP
 `sudo apt install clangd` to install C/C++ language server, for other servers look it up.  
