@@ -1,5 +1,10 @@
 vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
 vim.opt.number = true
+vim.opt.virtualedit = "block"
+vim.opt.inccommand = "split" -- preview for :%s
+vim.opt.ignorecase = true
+vim.opt.splitright = true
 
 vim.api.nvim_create_user_command('WQ', 'wq', {})
 vim.api.nvim_create_user_command('Wq', 'wq', {})
@@ -37,4 +42,3 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
     apply_colorscheme(colors)
   end,
 })
-
