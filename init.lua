@@ -10,3 +10,10 @@ vim.call('plug#end')
 vim.lsp.enable('clangd')
 
 require("options")
+
+require'nvim-treesitter.configs'.setup {
+    ensure_installed = { "c", "lua", "markdown", "markdown_inline" },
+    highlight = {
+        enable = true,
+    },
+}

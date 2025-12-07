@@ -1,5 +1,4 @@
-# nvim
-neovim config
+# neovim config
 ### Install vim-plug
 ```
 sudo apt install git curl
@@ -20,6 +19,9 @@ Select all the ttf files with Mono in the name, right-click, install. Close all 
 ### Editing the config
 To source current file: `:source %`  
 To install plugins that haven't been installed yet remember to source init.lua and run `:PlugInstall`
+
+### Treesitter
+This config does this automatically but to install a parser for a language, e.g. lua: `:TSInstall lua`, then to turn on highlighting `:TSBufEnable highlight`  
 
 ### LSP
 `sudo apt install clangd` to install C/C++ language server, for other servers look it up.  
