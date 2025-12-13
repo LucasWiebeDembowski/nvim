@@ -10,7 +10,10 @@ vim.fn['plug#']('numToStr/Comment.nvim')
 
 vim.call('plug#end')
 
-require('Comment').setup()
+require('Comment').setup ({
+	toggler = { line = '<C-_>' }, -- vim interprets <C-/> as <C-_>
+	opleader = { line = '<C-_>' }
+})
 
 vim.lsp.enable('clangd')
 
