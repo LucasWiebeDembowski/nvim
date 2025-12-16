@@ -28,5 +28,8 @@ This config does this automatically but to install a parser for a language, e.g.
 `sudo apt install clangd` to install C/C++ language server, for other servers look it up.  
 For clangd (see [here](https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#clangd)) create symlink to compile_commands.json for your project in the project root directory, example:  
 `ln -s "$(pwd)/build/compile_commands.json" $(pwd)`  
+
+lua: `:MasonInstall lua-language-server` (Notes: Mason only installs things for neovim, not the whole system. :MasonInstall has tab-completion to see what is available).
+
 In neovim `:checkhealth vim.lsp` to check if it's working.  
 Ctrl-] to go to definition, Ctrl-t to return. grr for all references, press enter on one of them to go to that. grn to rename.
