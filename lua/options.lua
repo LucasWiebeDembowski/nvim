@@ -19,6 +19,12 @@ vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
 -- Press Esc to get rid of the last search pattern.
 vim.keymap.set('n', '<Esc>', ':let @/=""<CR>', {silent=true, noremap=true})
 
+-- Set up diagnostics
+vim.diagnostic.config({
+	-- virtual_text = true,
+	virtual_lines = true,
+})
+
 -- Define your colorscheme preferences
 local filetype_colors = {
   markdown = "default",
