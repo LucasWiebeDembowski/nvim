@@ -15,17 +15,17 @@ vim.call('plug#end')
 require("mason").setup()
 
 vim.lsp.config("lua_ls", {
-  settings = {
-    Lua = {
-      runtime = { version = "LuaJIT" },
-      diagnostics = { globals = { "vim" } },
-      workspace = {
-        library = vim.env.VIMRUNTIME,
-        checkThirdParty = false,
-      },
-      telemetry = { enable = false },
+    settings = {
+        Lua = {
+            runtime = { version = "LuaJIT" },
+            diagnostics = { globals = { "vim" } },
+            workspace = {
+                library = vim.env.VIMRUNTIME,
+                checkThirdParty = false,
+            },
+            telemetry = { enable = false },
+        },
     },
-  },
 })
 
 vim.lsp.enable('clangd')
@@ -41,8 +41,8 @@ require'nvim-treesitter.configs'.setup {
 -- Note: require('<plugin>').setup(<table>) is equivalent to putting opts = <table> in a Lazy.nvim config.
 
 require('Comment').setup ({
-	toggler = { line = '<C-_>' }, -- vim interprets <C-/> as <C-_>
-	opleader = { line = '<C-_>' }
+    toggler = { line = '<C-_>' }, -- vim interprets <C-/> as <C-_>
+    opleader = { line = '<C-_>' }
 })
 
 require("fzf-lua").setup { defaults = { git_icons = false } }
@@ -54,15 +54,14 @@ vim.api.nvim_set_keymap("n", "<C-l>", [[<Cmd>lua require"fzf-lua".live_grep()<CR
 vim.api.nvim_set_keymap("n", "<C-g>", [[<Cmd>lua require"fzf-lua".grep_project()<CR>]], {})
 vim.api.nvim_set_keymap("n", "<F1>", [[<Cmd>lua require"fzf-lua".help_tags()<CR>]], {})
 
-require("fzf-lua").utils.info(
-  "|<C-\\> buffers|<C-p> files|<C-g> grep|<C-l> live grep|<C-k> builtin|<F1> help|")
+require("fzf-lua").utils.info("|<C-\\> buffers|<C-p> files|<C-g> grep|<C-l> live grep|<C-k> builtin|<F1> help|")
 
 require("blink.cmp").setup({
-	keymap = {preset = 'default'},
-	appearance = {
-		use_nvim_cmp_as_default = false,
-		nerd_font_variant = 'mono',
-	},
-	sources = {default = { 'lsp', 'path', 'snippets', 'buffer' }},
-	fuzzy = { implementation = "prefer_rust_with_warning" }
+    keymap = {preset = 'default'},
+    appearance = {
+        use_nvim_cmp_as_default = false,
+        nerd_font_variant = 'mono',
+    },
+    sources = {default = { 'lsp', 'path', 'snippets', 'buffer' }},
+    fuzzy = { implementation = "prefer_rust_with_warning" }
 })
