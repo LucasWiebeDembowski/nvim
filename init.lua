@@ -8,6 +8,7 @@ vim.fn['plug#']('MeanderingProgrammer/render-markdown.nvim')
 vim.fn['plug#']('neovim/nvim-lspconfig')
 vim.fn['plug#']('numToStr/Comment.nvim')
 vim.fn['plug#']('ibhagwan/fzf-lua')
+vim.fn['plug#']('saghen/blink.cmp', {tag = 'v1.*'}) -- completions
 
 vim.call('plug#end')
 
@@ -37,6 +38,8 @@ require'nvim-treesitter.configs'.setup {
     },
 }
 
+-- Note: require('<plugin>').setup(<table>) is equivalent to putting opts = <table> in a Lazy.nvim config.
+
 require('Comment').setup ({
 	toggler = { line = '<C-_>' }, -- vim interprets <C-/> as <C-_>
 	opleader = { line = '<C-_>' }
@@ -53,3 +56,13 @@ vim.api.nvim_set_keymap("n", "<F1>", [[<Cmd>lua require"fzf-lua".help_tags()<CR>
 
 require("fzf-lua").utils.info(
   "|<C-\\> buffers|<C-p> files|<C-g> grep|<C-l> live grep|<C-k> builtin|<F1> help|")
+
+require("blink.cmp").setup({
+	keymap = {preset = 'default'},
+	appearance = {
+		use_nvim_cmp_as_default = false,
+		nerd_font_variant = 'mono',
+	},
+	sources = {default = { 'lsp', 'path', 'snippets', 'buffer' }},
+	fuzzy = { implementation = "prefer_rust_with_warning" }
+})

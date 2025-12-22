@@ -33,3 +33,6 @@ lua: `:MasonInstall lua-language-server` (Notes: Mason only installs things for 
 
 In neovim `:checkhealth vim.lsp` to check if it's working.  
 Ctrl-] to go to definition, Ctrl-t to return. grr for all references, press enter on one of them to go to that. grn to rename.
+
+### blink.cmp (for completions):  
+`sudo apt install rustc`
