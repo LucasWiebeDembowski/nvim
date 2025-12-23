@@ -8,6 +8,7 @@ vim.fn['plug#']('MeanderingProgrammer/render-markdown.nvim')
 vim.fn['plug#']('neovim/nvim-lspconfig')
 vim.fn['plug#']('numToStr/Comment.nvim')
 vim.fn['plug#']('ibhagwan/fzf-lua')
+vim.fn['plug#']('rafamadriz/friendly-snippets') -- optional: provides snippets for blink
 vim.fn['plug#']('saghen/blink.cmp', {tag = 'v1.*'}) -- completions
 
 vim.call('plug#end')
