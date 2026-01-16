@@ -1,4 +1,5 @@
 # neovim config
+## Ubuntu
 ### Install vim-plug
 ```
 sudo apt install git curl
@@ -10,10 +11,7 @@ curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --c
 Then in nvim run `:PlugInstall`. If there are plugins defined it will install them, if not it says no plugins to install. Without vim-plug you'll get a "Not an editor command" error.  
 
 ### Nerd font needed for render-markdown
-Download and unzip LiterationMono Nerd Font from https://www.nerdfonts.com/font-downloads and note that it's called Literation not Liberation.  
-##### Windows
-Select all the ttf files with Mono in the name, right-click, install. Close all instances of Windows terminal, reopen it and right click the title bar, Settings, Defaults, Appearance, Font face, LiterationMono Nerd Font Mono.
-##### Linux
+Download LiterationMono Nerd Font from https://www.nerdfonts.com/font-downloads and note that it's called Literation not Liberation.  
 `unzip ~/Downloads/LiterationMono.zip -d ~/.fonts`  
 `fc-cache -fv`
 
@@ -36,3 +34,24 @@ Ctrl-] to go to definition, Ctrl-t to return. grr for all references, press ente
 
 ### blink.cmp (for completions):  
 `sudo apt install rustc`
+
+## Windows
+### Nerd Font
+Download and unzip the same nerd font as for Ubuntu.  
+Select all the ttf files with Mono in the name, right-click, install. Close all instances of Windows terminal, reopen it and right click the title bar, Settings, Defaults, Appearance, Font face, LiterationMono Nerd Font Mono.
+
+### Config
+`cd ~\AppData\Local`  
+Clone the repo.  
+```
+iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
+    ni "$(@($env:XDG_DATA_HOME, $env:LOCALAPPDATA)[$null -eq $env:XDG_DATA_HOME])/nvim-data/site/autoload/plug.vim" -Force
+```
+`winget install junegunn.fzf`  
+`winget install -e --id OpenJS.NodeJS.LTS`  
+Open powershell as administrator.  
+`Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine`  
+`npm --version`  
+Then in neovim `:MasonInstall typescript-language-server`
+`:MasonInstall clangd`
+

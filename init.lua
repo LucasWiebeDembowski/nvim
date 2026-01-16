@@ -32,7 +32,14 @@ vim.lsp.config("lua_ls", {
 vim.lsp.enable('clangd')
 vim.lsp.enable('lua_ls')
 
-require'nvim-treesitter.configs'.setup {
+local treesitter
+if pcall(require, 'nvim-treesitter.configs') then
+    treesitter = require("nvim-treesitter.configs")
+else
+    treesitter = require("nvim-treesitter.config")
+end
+
+treesitter.setup {
     ensure_installed = { "c", "lua", "markdown", "markdown_inline" },
     highlight = {
         enable = true,
