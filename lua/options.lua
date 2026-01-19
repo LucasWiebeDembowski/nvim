@@ -1,6 +1,6 @@
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
--- vim.opt.expandtab = true
+vim.opt.expandtab = true
 vim.opt.number = true
 vim.opt.virtualedit = "block"
 vim.opt.inccommand = "split" -- preview for :%s
@@ -19,6 +19,22 @@ vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
 
 -- Press Esc to get rid of the last search pattern.
 vim.keymap.set('n', '<Esc>', ':let @/=""<CR>', {silent=true, noremap=true})
+
+-- Open terminal
+vim.api.nvim_create_autocmd({"TermOpen", "BufEnter"}, {
+    callback = function()
+        if vim.opt.buftype:get() == "terminal" then
+            vim.cmd(":startinsert")
+        end
+    end
+})
+vim.keymap.set("n", "<leader>t", function()
+    vim.cmd.vnew()
+    vim.cmd.term()
+    vim.cmd.wincmd("J")
+    vim.api.nvim_win_set_height(0, 7)
+    vim.cmd(":startinsert")
+end)
 
 -- Set up diagnostics
 vim.diagnostic.config({
@@ -53,3 +69,4 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
     apply_colorscheme(colors)
   end,
 })
+
