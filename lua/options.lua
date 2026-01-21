@@ -20,9 +20,6 @@ vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
 -- Press Esc to get rid of the last search pattern.
 vim.keymap.set('n', '<Esc>', ':let @/=""<CR>', {silent=true, noremap=true})
 
-vim.keymap.set('i', '(', '()<Left>', {noremap=true})
-vim.keymap.set('i', '[', '[]<Left>', {noremap=true})
-vim.keymap.set('i', '{', '{}<Left>', {noremap=true})
 vim.keymap.set("i", "<CR>", function()
   if vim.fn.search("{\\%#}", "n") ~= 0 then
     return "<CR><CR><Up><C-f>"
