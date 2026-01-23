@@ -3,7 +3,6 @@ require("options")
 vim.call('plug#begin')
 
 vim.fn['plug#']('mason-org/mason.nvim') -- for installing LSPs
-vim.fn['plug#']('nvim-treesitter/nvim-treesitter') -- prerequisite for render-markdown
 vim.fn['plug#']('MeanderingProgrammer/render-markdown.nvim')
 vim.fn['plug#']('neovim/nvim-lspconfig')
 vim.fn['plug#']('numToStr/Comment.nvim')
@@ -33,11 +32,6 @@ vim.lsp.enable('clangd')
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('ts_ls')
 
-require("nvim-treesitter.config").setup {
-    highlight = {
-        enable = true,
-    },
-}
 -- Note: require('<plugin>').setup(<table>) is equivalent to putting opts = <table> in a Lazy.nvim config.
 
 require('Comment').setup ({

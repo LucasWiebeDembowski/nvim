@@ -21,7 +21,7 @@ To source current file: `:source %`
 To install plugins that haven't been installed yet remember to source init.lua and run `:PlugInstall`
 
 ### Treesitter
-To install a parser for a language, e.g. lua: `:TSInstall lua`, then to turn on highlighting `:TSBufEnable highlight`  
+nvim-treesitter is unnecessary and isn't worth the time anyway.
 
 ### LSP
 `sudo apt install clangd` to install C/C++ language server, for other servers look it up.  
