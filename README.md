@@ -9,6 +9,7 @@ curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --c
 ### Clone this repo to ${XDG_DATA_HOME:-$HOME/.config}
 
 Then in nvim run `:PlugInstall`. If there are plugins defined it will install them, if not it says no plugins to install. Without vim-plug you'll get a "Not an editor command" error.  
+`:PlugUpdate` will update the plugins.
 
 ### Nerd font needed for render-markdown
 Download LiterationMono Nerd Font from https://www.nerdfonts.com/font-downloads and note that it's called Literation not Liberation.  
@@ -20,7 +21,7 @@ To source current file: `:source %`
 To install plugins that haven't been installed yet remember to source init.lua and run `:PlugInstall`
 
 ### Treesitter
-This config does this automatically but to install a parser for a language, e.g. lua: `:TSInstall lua`, then to turn on highlighting `:TSBufEnable highlight`  
+To install a parser for a language, e.g. lua: `:TSInstall lua`, then to turn on highlighting `:TSBufEnable highlight`  
 
 ### LSP
 `sudo apt install clangd` to install C/C++ language server, for other servers look it up.  

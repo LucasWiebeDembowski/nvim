@@ -33,20 +33,11 @@ vim.lsp.enable('clangd')
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('ts_ls')
 
-local treesitter
-if pcall(require, 'nvim-treesitter.configs') then
-    treesitter = require("nvim-treesitter.configs")
-else
-    treesitter = require("nvim-treesitter.config")
-end
-
-treesitter.setup {
-    ensure_installed = { "c", "lua", "markdown", "markdown_inline" },
+require("nvim-treesitter.config").setup {
     highlight = {
         enable = true,
     },
 }
-
 -- Note: require('<plugin>').setup(<table>) is equivalent to putting opts = <table> in a Lazy.nvim config.
 
 require('Comment').setup ({
