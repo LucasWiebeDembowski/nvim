@@ -13,6 +13,8 @@ Then in nvim run `:PlugInstall`. If there are plugins defined it will install th
 
 ### Nerd font needed for render-markdown
 Download LiterationMono Nerd Font from https://www.nerdfonts.com/font-downloads and note that it's called Literation not Liberation.  
+If using WSL then see the Nerd Font section under Windows to get it working in Windows Terminal.  
+If using actual Ubuntu:  
 `unzip ~/Downloads/LiterationMono.zip -d ~/.fonts`  
 `fc-cache -fv`
 
