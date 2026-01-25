@@ -28,10 +28,10 @@ vim.lsp.config("lua_ls", {
     },
 })
 
-vim.lsp.enable('clangd')
-vim.lsp.enable('lua_ls')
-vim.lsp.enable('ts_ls')
-vim.lsp.enable('eslint')
+vim.lsp.enable('clangd') -- :MasonInstall clangd (or sudo apt install clangd)
+vim.lsp.enable('lua_ls') -- :MasonInstall lua-language-server
+vim.lsp.enable('ts_ls') -- :MasonInstall typescript-language-server
+vim.lsp.enable('eslint') -- :MasonInstall eslint-lsp
 
 -- Note: require('<plugin>').setup(<table>) is equivalent to putting opts = <table> in a Lazy.nvim config.
 

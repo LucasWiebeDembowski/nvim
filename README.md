@@ -55,7 +55,5 @@ iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
 Open powershell as administrator.  
 `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine`  
 `npm --version`  
-Then in neovim `:MasonInstall typescript-language-server`
-`:MasonInstall eslint-lsp`
-`:MasonInstall clangd`
+Then in neovim install language servers you want, e.g. `:MasonInstall typescript-language-server`
 
