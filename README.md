@@ -56,5 +56,6 @@ Open powershell as administrator.
 `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine`  
 `npm --version`  
 Then in neovim `:MasonInstall typescript-language-server`
+`:MasonInstall eslint-lsp`
 `:MasonInstall clangd`
 

@@ -44,7 +44,7 @@ vim.keymap.set("n", "<leader>t", function()
     vim.cmd(":startinsert")
 end)
 
--- Set up diagnostics
+-- Set up diagnostics for LSP
 vim.diagnostic.config({
 	-- virtual_text = true,
 	virtual_lines = true,
