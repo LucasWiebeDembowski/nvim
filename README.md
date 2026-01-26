@@ -23,7 +23,14 @@ To source current file: `:source %`
 To install plugins that haven't been installed yet remember to source init.lua and run `:PlugInstall`
 
 ### Treesitter
-nvim-treesitter is unnecessary and isn't worth the time anyway.
+Needed for folding, and potentially other things. Most tutorials are for the outdated master branch which is not compatible with the (now default) main branch. To use main branch:  
+Download https://github.com/tree-sitter/tree-sitter/releases/tag/v0.26.3 and then `mv Downloads/tree-sitter-windows-x64/tree-sitter.exe ~/.local/bin` and make sure that destination is in your path.  
+Note: npm install tree-sitter-cli is not recommended since I don't know where it gets installed.  
+In neovim `:checkhealth nvim-treesitter` to make sure it's good otherwise installing parsers can freeze neovim.  
+In neovim, to install parsers do `:TSInstall javascript` for example.  
+Note, to see if a treesitter parser is working, open a file and do `:lua= vim.treesitter.get_parser(0):lang()`  
+### Folding
+Requires nvim-treesitter (above) and a parser for the language. `zc` to collapse and `zo` to open a block, if you get "No fold found" you need to install the parser for that language and restart neovim.
 
 ### LSP
 `sudo apt install clangd` to install C/C++ language server, for other servers look it up.  
@@ -33,7 +40,7 @@ For clangd (see [here](https://github.com/neovim/nvim-lspconfig/blob/master/doc/
 lua: `:MasonInstall lua-language-server` (Notes: Mason only installs things for neovim, not the whole system. :MasonInstall has tab-completion to see what is available).
 
 In neovim `:checkhealth vim.lsp` to check if it's working.  
-Ctrl-] to go to definition, Ctrl-t to return. grr for all references, press enter on one of them to go to that. grn to rename.
+Ctrl-] to go to definition, Ctrl-t to return. `grr` for all references, press enter on one of them to go to it. `grn` to rename, `gra` if it says "fix available" to show code actions.
 
 ### blink.cmp (for completions):  
 `sudo apt install rustc`
@@ -55,5 +62,6 @@ iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
 Open powershell as administrator.  
 `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine`  
 `npm --version`  
+Download https://github.com/tree-sitter/tree-sitter/releases/tag/v0.26.3 and then `mv Downloads/tree-sitter-windows-x64/tree-sitter.exe ~/bin` 
 Then in neovim install language servers you want, e.g. `:MasonInstall typescript-language-server`
 
