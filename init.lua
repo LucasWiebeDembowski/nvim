@@ -29,10 +29,25 @@ vim.lsp.config("lua_ls", {
     },
 })
 
+vim.lsp.config('pylsp', {
+    settings = {
+        pylsp = {
+            plugins = {
+                pycodestyle = { enabled = false },
+                -- flake8 = { enabled = false },
+                -- mccabe = { enabled = false },
+                -- autopep8 = { enabled = false },
+                -- yapf = { enabled = false },
+            },
+        },
+    },
+})
+
 vim.lsp.enable('clangd') -- :MasonInstall clangd (or sudo apt install clangd)
 vim.lsp.enable('lua_ls') -- :MasonInstall lua-language-server
 vim.lsp.enable('ts_ls') -- :MasonInstall typescript-language-server
 vim.lsp.enable('eslint') -- :MasonInstall eslint-lsp
+vim.lsp.enable('pylsp') -- :MasonInstall python-lsp-server
 
 -- Note: require('<plugin>').setup(<table>) is equivalent to putting opts = <table> in a Lazy.nvim config.
 
