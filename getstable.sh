@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
+if [[ "$(uname)" == "MINGW"* ]]; then
+    winget install Neovim.Neovim
+    exit 0
+fi
 if test -z "$1"; then
-    version="0.11.5"
+    version="0.11.6"
 else
     version="$1"
 fi
