@@ -10,6 +10,7 @@ vim.fn['plug#']('numToStr/Comment.nvim')
 vim.fn['plug#']('ibhagwan/fzf-lua')
 vim.fn['plug#']('rafamadriz/friendly-snippets') -- optional: provides snippets for blink
 vim.fn['plug#']('saghen/blink.cmp', {tag = 'v1.*'}) -- completions
+vim.fn['plug#']('numToStr/FTerm.nvim') -- Floating terminal
 
 vim.call('plug#end')
 
@@ -80,3 +81,11 @@ require("blink.cmp").setup({
     sources = {default = { 'lsp', 'path', 'snippets', 'buffer' }},
     fuzzy = { implementation = "prefer_rust_with_warning" }
 })
+
+require("FTerm").setup({
+    cmd = os.getenv('SHELL') and os.getenv('SHELL') or vim.opt.shell:get()
+})
+vim.keymap.set('n', '<A-t>', '<CMD>lua require("FTerm").toggle()<CR>')
+vim.keymap.set('i', '<A-t>', '<CMD>lua require("FTerm").toggle()<CR>')
+vim.keymap.set('t', '<A-t>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
+

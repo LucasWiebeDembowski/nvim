@@ -11,6 +11,9 @@ vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 vim.opt.foldnestmax = 4
+if string.find(os.getenv("SHELL") and os.getenv("SHELL") or "", "bash") then
+    vim.opt.shellcmdflag = "-c" -- On windows this defaults to "/s /c" but that only works for cmd.exe.
+end
 
 vim.api.nvim_create_user_command('WQ', 'wq', {})
 vim.api.nvim_create_user_command('Wq', 'wq', {})
@@ -33,7 +36,7 @@ vim.keymap.set("i", "<CR>", function()
   end
 end, { expr = true })
 
--- Open terminal
+-- Enter insert mode on entering a terminal window.
 vim.api.nvim_create_autocmd({"TermOpen", "BufEnter"}, {
     callback = function()
         if vim.opt.buftype:get() == "terminal" then
@@ -41,6 +44,7 @@ vim.api.nvim_create_autocmd({"TermOpen", "BufEnter"}, {
         end
     end
 })
+-- Open a terminal window.
 vim.keymap.set("n", "<leader>t", function()
     vim.cmd.vnew()
     vim.cmd.term()
