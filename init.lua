@@ -49,6 +49,7 @@ vim.lsp.enable('lua_ls') -- :MasonInstall lua-language-server
 vim.lsp.enable('ts_ls') -- :MasonInstall typescript-language-server
 vim.lsp.enable('eslint') -- :MasonInstall eslint-lsp
 vim.lsp.enable('pylsp') -- :MasonInstall python-lsp-server
+vim.lsp.enable('dockerls') -- :MasonInstall dockerfile-lsp-server
 
 -- Note: require('<plugin>').setup(<table>) is equivalent to putting opts = <table> in a Lazy.nvim config.
 
