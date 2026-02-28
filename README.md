@@ -1,4 +1,6 @@
 # neovim config
+My personal neovim config.  
+Manual steps documented below.
 ## Ubuntu
 ### Install vim-plug
 ```
