@@ -84,6 +84,8 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
     local ft = vim.bo.filetype
     local colors = filetype_colors[ft] or default_colorscheme
     apply_colorscheme(colors)
+    vim.cmd('hi Pmenu guibg=#191e29')
+    vim.cmd('hi PmenuSel guibg=#2f394f')
   end,
 })
 
