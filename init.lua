@@ -1,3 +1,6 @@
+vim.g.loaded_netrw = 1 -- disabling netrw is recommended for nvim-tree
+vim.g.loaded_netrwPlugin = 1
+
 require("options")
 
 vim.call('plug#begin')
@@ -11,6 +14,8 @@ vim.fn['plug#']('ibhagwan/fzf-lua')
 vim.fn['plug#']('rafamadriz/friendly-snippets') -- optional: provides snippets for blink
 vim.fn['plug#']('saghen/blink.cmp', {tag = 'v1.*'}) -- completions
 vim.fn['plug#']('numToStr/FTerm.nvim') -- Floating terminal
+vim.fn['plug#']('nvim-tree/nvim-web-devicons') -- optional: provides icons for nvim-tree
+vim.fn['plug#']('nvim-tree/nvim-tree.lua')
 
 vim.call('plug#end')
 
@@ -90,3 +95,7 @@ vim.keymap.set('n', '<A-t>', '<CMD>lua require("FTerm").toggle()<CR>')
 vim.keymap.set('i', '<A-t>', '<CMD>lua require("FTerm").toggle()<CR>')
 vim.keymap.set('t', '<A-t>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
 
+require("nvim-tree").setup({view={width=40}})
+vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', {
+    noremap = true
+})
