@@ -13,6 +13,7 @@ vim.fn['plug#']('numToStr/Comment.nvim')
 vim.fn['plug#']('ibhagwan/fzf-lua')
 vim.fn['plug#']('rafamadriz/friendly-snippets') -- optional: provides snippets for blink
 vim.fn['plug#']('saghen/blink.cmp', {tag = 'v1.*'}) -- completions
+-- NOTE to update blink on Windows, run :PlugUpdate from Powershell, not bash, then open a file.
 vim.fn['plug#']('numToStr/FTerm.nvim') -- Floating terminal
 vim.fn['plug#']('nvim-tree/nvim-web-devicons') -- optional: provides icons for nvim-tree
 vim.fn['plug#']('nvim-tree/nvim-tree.lua')
