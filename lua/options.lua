@@ -11,6 +11,7 @@ vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 vim.opt.foldnestmax = 4
+vim.opt.colorcolumn = "100"
 vim.opt.cinoptions = "(s,Ws,u2,U1,:s,l1"
 
 if string.find(os.getenv("SHELL") and os.getenv("SHELL") or "", "bash") then
@@ -91,6 +92,7 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
     apply_colorscheme(colors)
     vim.cmd('hi Pmenu guibg=#191e29')
     vim.cmd('hi PmenuSel guibg=#2f394f')
+    vim.api.nvim_set_hl(0, "VirtColumn", { fg = "#00FF00" })
   end,
 })
 

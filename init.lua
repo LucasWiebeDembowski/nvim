@@ -17,6 +17,7 @@ vim.fn['plug#']('saghen/blink.cmp', {tag = 'v1.*'}) -- completions
 vim.fn['plug#']('numToStr/FTerm.nvim') -- Floating terminal
 vim.fn['plug#']('nvim-tree/nvim-web-devicons') -- optional: provides icons for nvim-tree
 vim.fn['plug#']('nvim-tree/nvim-tree.lua')
+vim.fn['plug#']('xiyaowong/virtcolumn.nvim')
 
 vim.call('plug#end')
 
