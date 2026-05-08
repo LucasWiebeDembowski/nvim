@@ -11,6 +11,8 @@ vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 vim.opt.foldnestmax = 4
+vim.opt.cinoptions = "(s,Ws,u2,U1,:s,l1"
+
 if string.find(os.getenv("SHELL") and os.getenv("SHELL") or "", "bash") then
     vim.opt.shellcmdflag = "-c" -- On windows this defaults to "/s /c" but that only works for cmd.exe.
 end
