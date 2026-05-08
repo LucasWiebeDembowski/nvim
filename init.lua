@@ -42,7 +42,7 @@ vim.lsp.config('pylsp', {
             plugins = {
                 pycodestyle = { enabled = false },
                 -- flake8 = { enabled = false },
-                -- mccabe = { enabled = false },
+                mccabe = { enabled = false },
                 -- autopep8 = { enabled = false },
                 -- yapf = { enabled = false },
             },
