@@ -26,7 +26,10 @@ vim.cmd('autocmd BufEnter * set formatoptions-=cro')
 vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
 
 -- Press Esc to get rid of the last search pattern.
-vim.keymap.set('n', '<Esc>', ':let @/=""<CR>', {silent=true, noremap=true})
+vim.keymap.set('n', '<Esc>', function()
+    vim.fn.setreg('/', '') -- clear search register
+    vim.cmd('echo ""') -- clear the command line / error message
+end, { silent = true, noremap = true })
 
 vim.keymap.set("i", "<CR>", function()
   if vim.fn.search("{\\%#}", "n") ~= 0 then
