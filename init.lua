@@ -21,6 +21,21 @@ vim.fn['plug#']('nvim-tree/nvim-tree.lua')
 vim.call('plug#end')
 
 require("mason").setup()
+local ensure_installed = {
+    "lua-language-server",
+    "clangd",
+    "python-lsp-server",
+    "bash-language-server",
+}
+local registry = require("mason-registry")
+registry.refresh(function()
+    for _, name in ipairs(ensure_installed) do
+        local pkg = registry.get_package(name)
+        if not pkg:is_installed() then
+            pkg:install()
+        end
+    end
+end)
 
 vim.lsp.config("lua_ls", {
     settings = {
