@@ -70,7 +70,7 @@ vim.lsp.enable('clangd') -- :MasonInstall clangd (or sudo apt install clangd)
 vim.lsp.enable('lua_ls') -- :MasonInstall lua-language-server
 vim.lsp.enable('ts_ls') -- :MasonInstall typescript-language-server
 vim.lsp.enable('eslint') -- :MasonInstall eslint-lsp
-vim.lsp.enable('pylsp') -- :MasonInstall python-lsp-server
+vim.lsp.enable('pylsp') -- sudo apt install python3-venv, :MasonInstall python-lsp-server
 vim.lsp.enable('dockerls') -- :MasonInstall dockerfile-lsp-server
 vim.lsp.enable('bashls') -- :MasonInstall bash-language-server
 
