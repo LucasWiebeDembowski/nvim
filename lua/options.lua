@@ -13,6 +13,11 @@ vim.opt.foldlevelstart = 99
 vim.opt.foldnestmax = 4
 vim.opt.colorcolumn = "100"
 vim.opt.cinoptions = "(s,Ws,u2,U1,:s,l1"
+vim.opt.grepprg = "rg --vimgrep"
+vim.opt.grepformat = "%f:%l:%c:%m"
+vim.o.shellslash = true -- Avoid 'No such file' and 'Can't open errofile' when doing :grep on Windows
+vim.o.shellxquote = '' -- Avoid 'Can't open errorfile' when doing :grep on Windows
+-- note, :grep to go to pattern, :grep! to find it without going to it.
 
 if string.find(os.getenv("SHELL") and os.getenv("SHELL") or "", "bash") then
     vim.opt.shellcmdflag = "-c" -- On windows this defaults to "/s /c" but that only works for cmd.exe.
