@@ -18,6 +18,7 @@ vim.fn['plug#']('numToStr/FTerm.nvim') -- Floating terminal
 vim.fn['plug#']('nvim-tree/nvim-web-devicons') -- optional: provides icons for nvim-tree
 vim.fn['plug#']('nvim-tree/nvim-tree.lua')
 vim.fn['plug#']('xiyaowong/virtcolumn.nvim')
+vim.fn['plug#']('nemanjamalesija/smart-paste.nvim')
 
 vim.call('plug#end')
 
@@ -119,3 +120,6 @@ require("nvim-tree").setup({view={width=40}})
 vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', {
     noremap = true
 })
+
+require('smart-paste').setup()
+
