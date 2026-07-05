@@ -107,7 +107,9 @@ require("blink.cmp").setup({
 })
 
 require("FTerm").setup({
-    cmd = os.getenv('SHELL') and os.getenv('SHELL') or vim.opt.shell:get()
+    ---NOTE: if given string[], it will skip the shell and directly executes the command
+    ---Otherwise in git bash on Windows it would do /usr/bin/bash -c "C:\Program Files\Git\usr\bin\bash.exe" and fail.
+    cmd = { os.getenv('SHELL') and os.getenv('SHELL') or vim.opt.shell:get() }
 })
 vim.keymap.set('n', '<A-t>', '<CMD>lua require("FTerm").toggle()<CR>')
 vim.keymap.set('i', '<A-t>', '<CMD>lua require("FTerm").toggle()<CR>')
