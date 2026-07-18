@@ -13,16 +13,12 @@ curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --c
 Then in nvim run `:PlugInstall`. If there are plugins defined it will install them, if not it says no plugins to install. Without vim-plug you'll get a "Not an editor command" error.  
 `:PlugUpdate` will update the plugins.
 
-### Nerd font needed for render-markdown
+### Nerd font
 Download LiterationMono Nerd Font from https://www.nerdfonts.com/font-downloads and note that it's called Literation not Liberation.  
 If using WSL then see the Nerd Font section under Windows to get it working in Windows Terminal.  
 If using actual Ubuntu:  
 `unzip ~/Downloads/LiterationMono.zip -d ~/.fonts`  
 `fc-cache -fv`
-
-### Editing the config
-To source current file: `:source %`  
-To install plugins that haven't been installed yet remember to source init.lua and run `:PlugInstall`
 
 ### Treesitter
 Needed for folding, and potentially other things. Most tutorials are for the outdated master branch which is not compatible with the (now default) main branch. To use main branch:  
