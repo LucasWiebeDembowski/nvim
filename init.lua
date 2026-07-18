@@ -87,7 +87,7 @@ require('Comment').setup ({
 require("fzf-lua").setup { defaults = { git_icons = false } }
 
 vim.api.nvim_set_keymap("n", "<C-\\>", [[<Cmd>lua require"fzf-lua".buffers()<CR>]], {})
-vim.api.nvim_set_keymap("n", "<C-k>", [[<Cmd>lua require"fzf-lua".builtin()<CR>]], {})
+-- vim.api.nvim_set_keymap("n", "<C-k>", [[<Cmd>lua require"fzf-lua".builtin()<CR>]], {})
 vim.api.nvim_set_keymap("n", "<C-p>", [[<Cmd>lua require"fzf-lua".files()<CR>]], {})
 vim.api.nvim_set_keymap("n", "<C-l>", [[<Cmd>lua require"fzf-lua".live_grep()<CR>]], {})
 vim.api.nvim_set_keymap("n", "<C-g>", [[<Cmd>lua require"fzf-lua".grep_project()<CR>]], {})
@@ -100,6 +100,7 @@ require("blink.cmp").setup({
 		preset = 'default',
 		['<Up>'] = false,
 		['<Down>'] = false,
+        ["<C-k>"] = { "show", "show_documentation", "hide_documentation" },
 	},
     appearance = {
         use_nvim_cmp_as_default = false,
