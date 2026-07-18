@@ -8,6 +8,7 @@ vim.call('plug#begin')
 vim.fn['plug#']('mason-org/mason.nvim') -- for installing LSPs
 vim.fn['plug#']('nvim-treesitter/nvim-treesitter')
 vim.fn['plug#']('neovim/nvim-lspconfig')
+vim.fn['plug#']('brianhuster/live-preview.nvim')
 vim.fn['plug#']('numToStr/Comment.nvim')
 vim.fn['plug#']('ibhagwan/fzf-lua')
 vim.fn['plug#']('rafamadriz/friendly-snippets') -- optional: provides snippets for blink
@@ -73,6 +74,8 @@ vim.lsp.enable('eslint') -- :MasonInstall eslint-lsp
 vim.lsp.enable('pylsp') -- sudo apt install python3-venv, :MasonInstall python-lsp-server
 vim.lsp.enable('dockerls') -- :MasonInstall dockerfile-lsp-server
 vim.lsp.enable('bashls') -- :MasonInstall bash-language-server
+
+vim.keymap.set("n", "<leader>v", "<CMD>LivePreview start<CR>")
 
 -- Note: require('<plugin>').setup(<table>) is equivalent to putting opts = <table> in a Lazy.nvim config.
 
