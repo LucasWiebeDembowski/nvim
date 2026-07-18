@@ -29,6 +29,14 @@ vim.api.nvim_create_user_command('W', 'w', {})
 vim.api.nvim_create_user_command('Qa', 'qa', {})
 vim.api.nvim_create_user_command('Q', 'q', {})
 
+vim.keymap.set("n", "<leader>w", function()
+  local view = vim.fn.winsaveview()
+  local search = vim.fn.getreg("/")
+  vim.cmd([[%s/\s\+$//e]])
+  vim.fn.setreg("/", search)
+  vim.fn.winrestview(view)
+end, { desc = "Trim trailing whitespace" })
+
 -- Don't autocomment the next line
 vim.cmd('autocmd BufEnter * set formatoptions-=cro')
 vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
