@@ -97,11 +97,11 @@ vim.api.nvim_set_keymap("n", "<F1>", [[<Cmd>lua require"fzf-lua".help_tags()<CR>
 
 require("blink.cmp").setup({
     keymap = {
-		preset = 'default',
-		['<Up>'] = false,
-		['<Down>'] = false,
+        preset = 'default',
+        ['<Up>'] = false,
+        ['<Down>'] = false,
         ["<C-k>"] = { "show", "show_documentation", "hide_documentation" },
-	},
+    },
     appearance = {
         use_nvim_cmp_as_default = false,
         nerd_font_variant = 'mono',
