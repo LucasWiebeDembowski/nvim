@@ -1,5 +1,5 @@
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.number = true
 vim.opt.virtualedit = "block"
@@ -15,12 +15,12 @@ vim.opt.colorcolumn = "100"
 vim.opt.cinoptions = "(s,Ws,u2,U1,:s,l1"
 vim.opt.grepprg = "rg --vimgrep"
 vim.opt.grepformat = "%f:%l:%c:%m"
-vim.o.shellslash = true -- Avoid 'No such file' and 'Can't open errofile' when doing :grep on Windows
+vim.o.shellslash = true -- Avoid 'No such file' and 'Can't open errorfile' when doing :grep on Windows
 vim.o.shellxquote = '' -- Avoid 'Can't open errorfile' when doing :grep on Windows
 -- note, :grep to go to pattern, :grep! to find it without going to it.
 
 if string.find(os.getenv("SHELL") and os.getenv("SHELL") or "", "bash") then
-    vim.opt.shellcmdflag = "-c" -- On windows this defaults to "/s /c" but that only works for cmd.exe.
+  vim.opt.shellcmdflag = "-c" -- On windows this defaults to "/s /c" but that only works for cmd.exe.
 end
 
 vim.api.nvim_create_user_command('WQ', 'wq', {})
@@ -43,8 +43,8 @@ vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
 
 -- Press Esc to get rid of the last search pattern.
 vim.keymap.set('n', '<Esc>', function()
-    vim.fn.setreg('/', '') -- clear search register
-    vim.cmd('echo ""') -- clear the command line / error message
+  vim.fn.setreg('/', '') -- clear search register
+  vim.cmd('echo ""') -- clear the command line / error message
 end, { silent = true, noremap = true })
 
 vim.keymap.set("i", "<CR>", function()
@@ -57,25 +57,25 @@ end, { expr = true })
 
 -- Enter insert mode on entering a terminal window.
 vim.api.nvim_create_autocmd({"TermOpen", "BufEnter"}, {
-    callback = function()
-        if vim.opt.buftype:get() == "terminal" then
-            vim.cmd(":startinsert")
-        end
+  callback = function()
+    if vim.opt.buftype:get() == "terminal" then
+      vim.cmd(":startinsert")
     end
+  end
 })
 -- Open a terminal window.
 vim.keymap.set("n", "<leader>t", function()
-    vim.cmd.vnew()
-    vim.cmd.term()
-    vim.cmd.wincmd("J")
-    vim.api.nvim_win_set_height(0, 7)
-    vim.cmd(":startinsert")
+  vim.cmd.vnew()
+  vim.cmd.term()
+  vim.cmd.wincmd("J")
+  vim.api.nvim_win_set_height(0, 7)
+  vim.cmd(":startinsert")
 end)
 
 -- Set up diagnostics for LSP
 vim.diagnostic.config({
-	-- virtual_text = true,
-	virtual_lines = true,
+  -- virtual_text = true,
+  virtual_lines = true,
 })
 
 -- colours

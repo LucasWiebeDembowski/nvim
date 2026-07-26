@@ -24,47 +24,47 @@ vim.call('plug#end')
 
 require("mason").setup()
 local ensure_installed = {
-    "lua-language-server",
-    "clangd",
-    "python-lsp-server",
-    "bash-language-server",
+  "lua-language-server",
+  "clangd",
+  "python-lsp-server",
+  "bash-language-server",
 }
 local registry = require("mason-registry")
 registry.refresh(function()
-    for _, name in ipairs(ensure_installed) do
-        local pkg = registry.get_package(name)
-        if not pkg:is_installed() then
-            pkg:install()
-        end
+  for _, name in ipairs(ensure_installed) do
+    local pkg = registry.get_package(name)
+    if not pkg:is_installed() then
+      pkg:install()
     end
+  end
 end)
 
 vim.lsp.config("lua_ls", {
-    settings = {
-        Lua = {
-            runtime = { version = "LuaJIT" },
-            diagnostics = { globals = { "vim" } },
-            workspace = {
-                library = vim.env.VIMRUNTIME,
-                checkThirdParty = false,
-            },
-            telemetry = { enable = false },
-        },
+  settings = {
+    Lua = {
+      runtime = { version = "LuaJIT" },
+      diagnostics = { globals = { "vim" } },
+      workspace = {
+        library = vim.env.VIMRUNTIME,
+        checkThirdParty = false,
+      },
+      telemetry = { enable = false },
     },
+  },
 })
 
 vim.lsp.config('pylsp', {
-    settings = {
-        pylsp = {
-            plugins = {
-                pycodestyle = { enabled = false },
-                -- flake8 = { enabled = false },
-                mccabe = { enabled = false },
-                -- autopep8 = { enabled = false },
-                -- yapf = { enabled = false },
-            },
-        },
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = { enabled = false },
+        -- flake8 = { enabled = false },
+        mccabe = { enabled = false },
+        -- autopep8 = { enabled = false },
+        -- yapf = { enabled = false },
+      },
     },
+  },
 })
 
 vim.lsp.enable('clangd') -- :MasonInstall clangd (or sudo apt install clangd)
@@ -80,8 +80,8 @@ vim.keymap.set("n", "<leader>v", "<CMD>LivePreview start<CR>")
 -- Note: require('<plugin>').setup(<table>) is equivalent to putting opts = <table> in a Lazy.nvim config.
 
 require('Comment').setup ({
-    toggler = { line = '<C-_>' }, -- vim interprets <C-/> as <C-_>
-    opleader = { line = '<C-_>' }
+  toggler = { line = '<C-_>' }, -- vim interprets <C-/> as <C-_>
+  opleader = { line = '<C-_>' }
 })
 
 require("fzf-lua").setup { defaults = { git_icons = false } }
@@ -96,24 +96,24 @@ vim.api.nvim_set_keymap("n", "<F1>", [[<Cmd>lua require"fzf-lua".help_tags()<CR>
 -- require("fzf-lua").utils.info("|<C-\\> buffers|<C-p> files|<C-g> grep|<C-l> live grep|<C-k> builtin|<F1> help|")
 
 require("blink.cmp").setup({
-    keymap = {
-        preset = 'default',
-        ['<Up>'] = false,
-        ['<Down>'] = false,
-        ["<C-k>"] = { "show", "show_documentation", "hide_documentation" },
-    },
-    appearance = {
-        use_nvim_cmp_as_default = false,
-        nerd_font_variant = 'mono',
-    },
-    sources = {default = { 'lsp', 'path', 'snippets', 'buffer' }},
-    fuzzy = { implementation = "prefer_rust_with_warning" }
+  keymap = {
+    preset = 'default',
+    ['<Up>'] = false,
+    ['<Down>'] = false,
+    ["<C-k>"] = { "show", "show_documentation", "hide_documentation" },
+  },
+  appearance = {
+    use_nvim_cmp_as_default = false,
+    nerd_font_variant = 'mono',
+  },
+  sources = {default = { 'lsp', 'path', 'snippets', 'buffer' }},
+  fuzzy = { implementation = "prefer_rust_with_warning" }
 })
 
 require("FTerm").setup({
-    ---NOTE: if given string[], it will skip the shell and directly executes the command
-    ---Otherwise in git bash on Windows it would do /usr/bin/bash -c "C:\Program Files\Git\usr\bin\bash.exe" and fail.
-    cmd = { os.getenv('SHELL') and os.getenv('SHELL') or vim.opt.shell:get() }
+  ---NOTE: if given string[], it will skip the shell and directly executes the command
+  ---Otherwise in git bash on Windows it would do /usr/bin/bash -c "C:\Program Files\Git\usr\bin\bash.exe" and fail.
+  cmd = { os.getenv('SHELL') and os.getenv('SHELL') or vim.opt.shell:get() }
 })
 vim.keymap.set('n', '<A-t>', '<CMD>lua require("FTerm").toggle()<CR>')
 vim.keymap.set('i', '<A-t>', '<CMD>lua require("FTerm").toggle()<CR>')
@@ -121,7 +121,7 @@ vim.keymap.set('t', '<A-t>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>'
 
 require("nvim-tree").setup({view={width=40}})
 vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', {
-    noremap = true
+  noremap = true
 })
 
 require('smart-paste').setup()
