@@ -125,4 +125,6 @@ vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', {
 })
 
 require('smart-paste').setup()
+vim.keymap.set("x", "p", "P")
+vim.keymap.set("x", "P", "p")
 
