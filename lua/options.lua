@@ -32,6 +32,11 @@ vim.api.nvim_create_user_command('Q', 'q', {})
 vim.keymap.set("x", "p", "P")
 vim.keymap.set("x", "P", "p")
 
+vim.keymap.set("n", "<leader>g", function()
+  vim.cmd("silent grep! " .. vim.fn.input("Grep > "))
+  vim.cmd("copen")
+end)
+
 vim.keymap.set("n", "<leader>w", function()
   local view = vim.fn.winsaveview()
   local search = vim.fn.getreg("/")
