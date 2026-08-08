@@ -4,7 +4,7 @@ if [[ "$(uname)" == "MINGW"* ]]; then
     exit 0
 fi
 if test -z "$1"; then
-    version="0.11.6"
+    version="0.12.4"
 else
     version="$1"
 fi
