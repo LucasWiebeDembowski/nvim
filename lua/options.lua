@@ -29,6 +29,9 @@ vim.api.nvim_create_user_command('W', 'w', {})
 vim.api.nvim_create_user_command('Qa', 'qa', {})
 vim.api.nvim_create_user_command('Q', 'q', {})
 
+vim.keymap.set("x", "p", "P")
+vim.keymap.set("x", "P", "p")
+
 vim.keymap.set("n", "<leader>w", function()
   local view = vim.fn.winsaveview()
   local search = vim.fn.getreg("/")
