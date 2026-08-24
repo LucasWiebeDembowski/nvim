@@ -86,9 +86,5 @@ vim.diagnostic.config({
   virtual_lines = true,
 })
 
--- colours
-vim.cmd("colorscheme vim")
-vim.cmd('hi Pmenu guibg=#191e29')
-vim.cmd('hi PmenuSel guibg=#2f394f')
-vim.api.nvim_set_hl(0, "VirtColumn", { fg = "#00FF00" })
+vim.cmd.colorscheme("vimlucas")
 
