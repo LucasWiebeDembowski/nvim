@@ -100,6 +100,7 @@ require("blink.cmp").setup({
     ['<Up>'] = false,
     ['<Down>'] = false,
     ["<C-k>"] = { "show", "show_documentation", "hide_documentation" },
+    -- Note: <C-e> hides menu https://cmp.saghen.dev/configuration/keymap.html
   },
   appearance = {
     use_nvim_cmp_as_default = false,

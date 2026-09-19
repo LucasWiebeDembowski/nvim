@@ -31,6 +31,10 @@ vim.api.nvim_create_user_command('Wa', 'wa', {})
 vim.api.nvim_create_user_command('Qa', 'qa', {})
 vim.api.nvim_create_user_command('Q', 'q', {})
 
+vim.keymap.set({ "n", "i" }, "<C-c>", "<cmd>cclose<CR>", {
+  desc = "Close quickfix list",
+})
+
 vim.keymap.set("x", "p", "P")
 vim.keymap.set("x", "P", "p")
 
