@@ -88,9 +88,21 @@ end)
 
 -- Set up diagnostics for LSP
 vim.diagnostic.config({
-  -- virtual_text = true,
-  virtual_lines = true,
+  virtual_text = true,
+  virtual_lines = false,
 })
+local diagnostic_float = nil
+local toggle_diagnostics = function()
+  if diagnostic_float and vim.api.nvim_win_is_valid(diagnostic_float) then
+    vim.api.nvim_win_close(diagnostic_float, true)
+    diagnostic_float = nil
+  else
+    _, diagnostic_float = vim.diagnostic.open_float()
+  end
+end
+-- Replace default <C-w>d which shows diagnostics but requires another <C-w>d to focus, then q to close.
+vim.keymap.set("n", "<leader>d", toggle_diagnostics)
+vim.keymap.set("n", "<C-w>d", toggle_diagnostics)
 
 vim.cmd.colorscheme("vimlucas")
 
