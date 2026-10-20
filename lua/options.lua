@@ -13,7 +13,7 @@ vim.opt.foldlevelstart = 99
 vim.opt.foldnestmax = 4
 vim.opt.colorcolumn = "100"
 vim.opt.cinoptions = "(s,Ws,u2,U1,:s,l1"
-vim.opt.grepprg = "rg --vimgrep"
+vim.opt.grepprg = "rg --vimgrep --sort=path"
 vim.opt.grepformat = "%f:%l:%c:%m"
 vim.o.shellslash = true -- Avoid 'No such file' and 'Can't open errorfile' when doing :grep on Windows
 vim.o.shellxquote = '' -- Avoid 'Can't open errorfile' when doing :grep on Windows
