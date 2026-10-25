@@ -38,6 +38,18 @@ vim.keymap.set({ "n", "i" }, "<C-c>", "<cmd>cclose<CR>", {
 vim.keymap.set("x", "p", "P")
 vim.keymap.set("x", "P", "p")
 
+-- vim.keymap.set("n", "<leader>o", "mao<Esc>`a")
+-- vim.keymap.set("n", "<leader>O", "maO<Esc>`a")
+vim.keymap.set("n", "<leader>o", function()
+  local line = unpack(vim.api.nvim_win_get_cursor(0)) -- note: can get column with local line, col =
+  vim.fn.call("append", {line, ''})
+
+end)
+vim.keymap.set("n", "<leader>O", function()
+  local line = unpack(vim.api.nvim_win_get_cursor(0))
+  vim.fn.call("append", {line - 1, {''}})
+end)
+
 vim.keymap.set("n", "<leader>g", function()
   vim.cmd("silent grep! " .. vim.fn.input("Grep > "))
   vim.cmd("copen")
