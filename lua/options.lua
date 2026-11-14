@@ -6,7 +6,6 @@ vim.opt.virtualedit = "block"
 vim.opt.inccommand = "split" -- preview for :%s
 vim.opt.ignorecase = true
 vim.opt.splitright = true
-vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
@@ -18,6 +17,16 @@ vim.opt.grepformat = "%f:%l:%c:%m"
 vim.o.shellslash = true -- Avoid 'No such file' and 'Can't open errorfile' when doing :grep on Windows
 vim.o.shellxquote = '' -- Avoid 'Can't open errorfile' when doing :grep on Windows
 -- note, :grep to go to pattern, :grep! to find it without going to it.
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function()
+    if vim.bo.filetype == "lua" then
+      vim.opt.foldmethod = "expr"
+    else
+      vim.opt.foldmethod = "syntax"
+    end
+  end,
+})
 
 if string.find(os.getenv("SHELL") and os.getenv("SHELL") or "", "bash") then
   vim.opt.shellcmdflag = "-c" -- On windows this defaults to "/s /c" but that only works for cmd.exe.
@@ -41,7 +50,6 @@ vim.keymap.set("x", "P", "p")
 vim.keymap.set("n", "<leader>o", function()
   local line = unpack(vim.api.nvim_win_get_cursor(0)) -- note: can get column with local line, col =
   vim.fn.call("append", {line, ''})
-
 end)
 vim.keymap.set("n", "<leader>O", function()
   local line = unpack(vim.api.nvim_win_get_cursor(0))
