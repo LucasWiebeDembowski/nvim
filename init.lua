@@ -79,9 +79,14 @@ vim.keymap.set("n", "<leader>v", "<CMD>LivePreview start<CR>")
 -- Note: require('<plugin>').setup(<table>) is equivalent to putting opts = <table> in a Lazy.nvim config.
 
 require('Comment').setup ({
-  toggler = { line = '<C-_>' }, -- vim interprets <C-/> as <C-_>
+  -- line is passed to lhs argument of vim.keymap.set,
+  -- lhs must be a string, see :help vim.keymap.set, the online docs are wrong.
+  toggler = { line = '<C-_>' }, -- some terminals interpret <C-/> as <C-_>
   opleader = { line = '<C-_>' }
 })
+-- But some terminals interpret <C-/> as is, so I remap it since toggler/opleader.line can't be a list.
+-- Note keymap.set has remap=false by default while nvim_set_keymap has noremap=false by default.
+vim.keymap.set("n", "<C-/>", "<C-_>", {remap = true})
 
 require("fzf-lua").setup { defaults = { git_icons = false } }
 
@@ -91,8 +96,6 @@ vim.api.nvim_set_keymap("n", "<C-p>", [[<Cmd>lua require"fzf-lua".files()<CR>]],
 vim.api.nvim_set_keymap("n", "<C-l>", [[<Cmd>lua require"fzf-lua".live_grep()<CR>]], {})
 vim.api.nvim_set_keymap("n", "<C-g>", [[<Cmd>lua require"fzf-lua".grep_project()<CR>]], {})
 vim.api.nvim_set_keymap("n", "<F1>", [[<Cmd>lua require"fzf-lua".help_tags()<CR>]], {})
-
--- require("fzf-lua").utils.info("|<C-\\> buffers|<C-p> files|<C-g> grep|<C-l> live grep|<C-k> builtin|<F1> help|")
 
 require("blink.cmp").setup({
   keymap = {
@@ -111,7 +114,7 @@ require("blink.cmp").setup({
 })
 
 require("FTerm").setup({
-  ---NOTE: if given string[], it will skip the shell and directly executes the command
+  ---NOTE: if given string[], it will skip the shell and directly execute the command.
   ---Otherwise in git bash on Windows it would do /usr/bin/bash -c "C:\Program Files\Git\usr\bin\bash.exe" and fail.
   cmd = { os.getenv('SHELL') and os.getenv('SHELL') or vim.opt.shell:get() }
 })
