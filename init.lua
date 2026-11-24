@@ -3,23 +3,23 @@ vim.g.loaded_netrwPlugin = 1
 
 require("options")
 
-vim.call('plug#begin')
+vim.call("plug#begin")
 
-vim.fn['plug#']('mason-org/mason.nvim') -- for installing LSPs
-vim.fn['plug#']('nvim-treesitter/nvim-treesitter')
-vim.fn['plug#']('neovim/nvim-lspconfig')
-vim.fn['plug#']('brianhuster/live-preview.nvim')
-vim.fn['plug#']('numToStr/Comment.nvim')
-vim.fn['plug#']('ibhagwan/fzf-lua')
-vim.fn['plug#']('rafamadriz/friendly-snippets') -- optional: provides snippets for blink
-vim.fn['plug#']('saghen/blink.cmp', {tag = 'v1.*'}) -- completions
+vim.fn["plug#"]("mason-org/mason.nvim") -- for installing LSPs
+vim.fn["plug#"]("nvim-treesitter/nvim-treesitter")
+vim.fn["plug#"]("neovim/nvim-lspconfig")
+vim.fn["plug#"]("brianhuster/live-preview.nvim")
+vim.fn["plug#"]("numToStr/Comment.nvim")
+vim.fn["plug#"]("ibhagwan/fzf-lua")
+vim.fn["plug#"]("rafamadriz/friendly-snippets") -- optional: provides snippets for blink
+vim.fn["plug#"]("saghen/blink.cmp", {tag = "v1.*"}) -- completions
 -- NOTE to update blink on Windows, run :PlugUpdate from Powershell, not bash, then open a file.
-vim.fn['plug#']('numToStr/FTerm.nvim') -- Floating terminal
-vim.fn['plug#']('nvim-tree/nvim-web-devicons') -- optional: provides icons for nvim-tree
-vim.fn['plug#']('nvim-tree/nvim-tree.lua')
-vim.fn['plug#']('xiyaowong/virtcolumn.nvim')
+vim.fn["plug#"]("numToStr/FTerm.nvim") -- Floating terminal
+vim.fn["plug#"]("nvim-tree/nvim-web-devicons") -- optional: provides icons for nvim-tree
+vim.fn["plug#"]("nvim-tree/nvim-tree.lua")
+vim.fn["plug#"]("xiyaowong/virtcolumn.nvim")
 
-vim.call('plug#end')
+vim.call("plug#end")
 
 require("mason").setup()
 local ensure_installed = {
@@ -52,7 +52,7 @@ vim.lsp.config("lua_ls", {
   },
 })
 
-vim.lsp.config('pylsp', {
+vim.lsp.config("pylsp", {
   settings = {
     pylsp = {
       plugins = {
@@ -66,23 +66,23 @@ vim.lsp.config('pylsp', {
   },
 })
 
-vim.lsp.enable('clangd') -- :MasonInstall clangd (or sudo apt install clangd)
-vim.lsp.enable('lua_ls') -- :MasonInstall lua-language-server
-vim.lsp.enable('ts_ls') -- :MasonInstall typescript-language-server
-vim.lsp.enable('eslint') -- :MasonInstall eslint-lsp
-vim.lsp.enable('pylsp') -- sudo apt install python3-venv, :MasonInstall python-lsp-server
-vim.lsp.enable('dockerls') -- :MasonInstall dockerfile-lsp-server
-vim.lsp.enable('bashls') -- :MasonInstall bash-language-server
+vim.lsp.enable("clangd") -- :MasonInstall clangd (or sudo apt install clangd)
+vim.lsp.enable("lua_ls") -- :MasonInstall lua-language-server
+vim.lsp.enable("ts_ls") -- :MasonInstall typescript-language-server
+vim.lsp.enable("eslint") -- :MasonInstall eslint-lsp
+vim.lsp.enable("pylsp") -- sudo apt install python3-venv, :MasonInstall python-lsp-server
+vim.lsp.enable("dockerls") -- :MasonInstall dockerfile-lsp-server
+vim.lsp.enable("bashls") -- :MasonInstall bash-language-server
 
 vim.keymap.set("n", "<leader>v", "<CMD>LivePreview start<CR>")
 
--- Note: require('<plugin>').setup(<table>) is equivalent to putting opts = <table> in a Lazy.nvim config.
+-- Note: require("<plugin>").setup(<table>) is equivalent to putting opts = <table> in a Lazy.nvim config.
 
-require('Comment').setup ({
+require("Comment").setup ({
   -- line is passed to lhs argument of vim.keymap.set,
   -- lhs must be a string, see :help vim.keymap.set, the online docs are wrong.
-  toggler = { line = '<C-_>' }, -- some terminals interpret <C-/> as <C-_>
-  opleader = { line = '<C-_>' }
+  toggler = { line = "<C-_>" }, -- some terminals interpret <C-/> as <C-_>
+  opleader = { line = "<C-_>" }
 })
 -- But some terminals interpret <C-/> as is, so I remap it since toggler/opleader.line can't be a list.
 -- Note keymap.set has remap=false by default while nvim_set_keymap has noremap=false by default.
@@ -90,40 +90,40 @@ vim.keymap.set("n", "<C-/>", "<C-_>", {remap = true})
 
 require("fzf-lua").setup { defaults = { git_icons = false } }
 
-vim.api.nvim_set_keymap("n", "<C-\\>", [[<Cmd>lua require"fzf-lua".buffers()<CR>]], {})
--- vim.api.nvim_set_keymap("n", "<C-k>", [[<Cmd>lua require"fzf-lua".builtin()<CR>]], {})
-vim.api.nvim_set_keymap("n", "<C-p>", [[<Cmd>lua require"fzf-lua".files()<CR>]], {})
-vim.api.nvim_set_keymap("n", "<C-l>", [[<Cmd>lua require"fzf-lua".live_grep()<CR>]], {})
-vim.api.nvim_set_keymap("n", "<C-g>", [[<Cmd>lua require"fzf-lua".grep_project()<CR>]], {})
-vim.api.nvim_set_keymap("n", "<F1>", [[<Cmd>lua require"fzf-lua".help_tags()<CR>]], {})
+vim.api.nvim_set_keymap("n", "<C-\\>", "<Cmd>lua require'fzf-lua'.buffers()<CR>", {})
+-- vim.api.nvim_set_keymap("n", "<C-k>", "<Cmd>lua require'fzf-lua'.builtin()<CR>", {})
+vim.api.nvim_set_keymap("n", "<C-p>", "<Cmd>lua require'fzf-lua'.files()<CR>", {})
+vim.api.nvim_set_keymap("n", "<C-l>", "<Cmd>lua require'fzf-lua'.live_grep()<CR>", {})
+vim.api.nvim_set_keymap("n", "<C-g>", "<Cmd>lua require'fzf-lua'.grep_project()<CR>", {})
+vim.api.nvim_set_keymap("n", "<F1>", "<Cmd>lua require'fzf-lua'.help_tags()<CR>", {})
 
 require("blink.cmp").setup({
   keymap = {
-    preset = 'default',
-    ['<Up>'] = false,
-    ['<Down>'] = false,
+    preset = "default",
+    ["<Up>"] = false,
+    ["<Down>"] = false,
     ["<C-k>"] = { "show", "show_documentation", "hide_documentation" },
     -- Note: <C-e> hides menu https://cmp.saghen.dev/configuration/keymap.html
   },
   appearance = {
     use_nvim_cmp_as_default = false,
-    nerd_font_variant = 'mono',
+    nerd_font_variant = "mono",
   },
-  sources = {default = { 'lsp', 'path', 'snippets', 'buffer' }},
+  sources = {default = { "lsp", "path", "snippets", "buffer" }},
   fuzzy = { implementation = "prefer_rust_with_warning" }
 })
 
 require("FTerm").setup({
   ---NOTE: if given string[], it will skip the shell and directly execute the command.
   ---Otherwise in git bash on Windows it would do /usr/bin/bash -c "C:\Program Files\Git\usr\bin\bash.exe" and fail.
-  cmd = { os.getenv('SHELL') and os.getenv('SHELL') or vim.opt.shell:get() }
+  cmd = { os.getenv("SHELL") and os.getenv("SHELL") or vim.opt.shell:get() }
 })
-vim.keymap.set('n', '<A-t>', '<CMD>lua require("FTerm").toggle()<CR>')
-vim.keymap.set('i', '<A-t>', '<CMD>lua require("FTerm").toggle()<CR>')
-vim.keymap.set('t', '<A-t>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
+vim.keymap.set("n", "<A-t>", "<CMD>lua require('FTerm').toggle()<CR>")
+vim.keymap.set("i", "<A-t>", "<CMD>lua require('FTerm').toggle()<CR>")
+vim.keymap.set("t", "<A-t>", "<C-\\><C-n><CMD>lua require('FTerm').toggle()<CR>")
 
 require("nvim-tree").setup({view={width=40}})
-vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', {
+vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", {
   noremap = true
 })
 

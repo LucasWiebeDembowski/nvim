@@ -14,8 +14,8 @@ vim.opt.colorcolumn = "100"
 vim.opt.cinoptions = "(s,Ws,u2,U1,:s,l1"
 vim.opt.grepprg = "rg --vimgrep --sort=path"
 vim.opt.grepformat = "%f:%l:%c:%m"
-vim.o.shellslash = true -- Avoid 'No such file' and 'Can't open errorfile' when doing :grep on Windows
-vim.o.shellxquote = '' -- Avoid 'Can't open errorfile' when doing :grep on Windows
+vim.o.shellslash = true -- Avoid "No such file" and "Can't open errorfile" when doing :grep on Windows
+vim.o.shellxquote = ""-- Avoid "Can't open errorfile" when doing :grep on Windows
 -- note, :grep to go to pattern, :grep! to find it without going to it.
 
 vim.api.nvim_create_autocmd("BufEnter", {
@@ -23,6 +23,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
     if vim.bo.filetype == "lua" then
       vim.opt.foldmethod = "expr"
     else
+      -- workaround for expr folding not working in c++ in some environments
       vim.opt.foldmethod = "syntax"
     end
   end,
@@ -32,13 +33,13 @@ if string.find(os.getenv("SHELL") and os.getenv("SHELL") or "", "bash") then
   vim.opt.shellcmdflag = "-c" -- On windows this defaults to "/s /c" but that only works for cmd.exe.
 end
 
-vim.api.nvim_create_user_command('WQ', 'wq', {})
-vim.api.nvim_create_user_command('Wq', 'wq', {})
-vim.api.nvim_create_user_command('Wqa', 'wqa', {})
-vim.api.nvim_create_user_command('W', 'w', {})
-vim.api.nvim_create_user_command('Wa', 'wa', {})
-vim.api.nvim_create_user_command('Qa', 'qa', {})
-vim.api.nvim_create_user_command('Q', 'q', {})
+vim.api.nvim_create_user_command("WQ", "wq", {})
+vim.api.nvim_create_user_command("Wq", "wq", {})
+vim.api.nvim_create_user_command("Wqa", "wqa", {})
+vim.api.nvim_create_user_command("W", "w", {})
+vim.api.nvim_create_user_command("Wa", "wa", {})
+vim.api.nvim_create_user_command("Qa", "qa", {})
+vim.api.nvim_create_user_command("Q", "q", {})
 
 vim.keymap.set({ "n", "i" }, "<C-c>", "<cmd>cclose<CR>", {
   desc = "Close quickfix list",
@@ -49,11 +50,11 @@ vim.keymap.set("x", "P", "p")
 
 vim.keymap.set("n", "<leader>o", function()
   local line = unpack(vim.api.nvim_win_get_cursor(0)) -- note: can get column with local line, col =
-  vim.fn.call("append", {line, ''})
+  vim.fn.call("append", {line, ""})
 end)
 vim.keymap.set("n", "<leader>O", function()
   local line = unpack(vim.api.nvim_win_get_cursor(0))
-  vim.fn.call("append", {line - 1, {''}})
+  vim.fn.call("append", {line - 1, {""}})
 end)
 
 vim.keymap.set("n", "<leader>g", function()
@@ -70,13 +71,13 @@ vim.keymap.set("n", "<leader>w", function()
 end, { desc = "Trim trailing whitespace" })
 
 -- Don't autocomment the next line
-vim.cmd('autocmd BufEnter * set formatoptions-=cro')
-vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
+vim.cmd("autocmd BufEnter * set formatoptions-=cro")
+vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
 
 -- Press Esc to get rid of the last search pattern.
-vim.keymap.set('n', '<Esc>', function()
-  vim.fn.setreg('/', '') -- clear search register
-  vim.cmd('echo ""') -- clear the command line / error message
+vim.keymap.set("n", "<Esc>", function()
+  vim.fn.setreg("/", "") -- clear search register
+  vim.cmd("echo ''") -- clear the command line / error message
 end, { silent = true, noremap = true })
 
 vim.keymap.set("i", "<CR>", function()
