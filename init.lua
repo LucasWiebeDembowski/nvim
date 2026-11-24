@@ -85,17 +85,16 @@ require("Comment").setup ({
   opleader = { line = "<C-_>" }
 })
 -- But some terminals interpret <C-/> as is, so I remap it since toggler/opleader.line can't be a list.
--- Note keymap.set has remap=false by default while nvim_set_keymap has noremap=false by default.
 vim.keymap.set("n", "<C-/>", "<C-_>", {remap = true})
 
 require("fzf-lua").setup { defaults = { git_icons = false } }
 
-vim.api.nvim_set_keymap("n", "<C-\\>", "<Cmd>lua require'fzf-lua'.buffers()<CR>", {})
--- vim.api.nvim_set_keymap("n", "<C-k>", "<Cmd>lua require'fzf-lua'.builtin()<CR>", {})
-vim.api.nvim_set_keymap("n", "<C-p>", "<Cmd>lua require'fzf-lua'.files()<CR>", {})
-vim.api.nvim_set_keymap("n", "<C-l>", "<Cmd>lua require'fzf-lua'.live_grep()<CR>", {})
-vim.api.nvim_set_keymap("n", "<C-g>", "<Cmd>lua require'fzf-lua'.grep_project()<CR>", {})
-vim.api.nvim_set_keymap("n", "<F1>", "<Cmd>lua require'fzf-lua'.help_tags()<CR>", {})
+vim.keymap.set("n", "<C-\\>", "<Cmd>lua require'fzf-lua'.buffers()<CR>")
+-- vim.keymap.set("n", "<C-k>", "<Cmd>lua require'fzf-lua'.builtin()<CR>")
+vim.keymap.set("n", "<C-p>", "<Cmd>lua require'fzf-lua'.files()<CR>")
+vim.keymap.set("n", "<C-l>", "<Cmd>lua require'fzf-lua'.live_grep()<CR>")
+vim.keymap.set("n", "<C-g>", "<Cmd>lua require'fzf-lua'.grep_project()<CR>")
+vim.keymap.set("n", "<F1>", "<Cmd>lua require'fzf-lua'.help_tags()<CR>")
 
 require("blink.cmp").setup({
   keymap = {
