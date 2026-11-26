@@ -66,6 +66,18 @@ vim.lsp.config("pylsp", {
   },
 })
 
+local capabilities = require('blink.cmp').get_lsp_capabilities({
+  textDocument = {
+    completion = {
+      completionItem = {
+        snippetSupport = false,
+      },
+    },
+  },
+})
+vim.lsp.config('clangd', {
+  capabilities = capabilities,
+})
 vim.lsp.enable("clangd") -- :MasonInstall clangd (or sudo apt install clangd)
 vim.lsp.enable("lua_ls") -- :MasonInstall lua-language-server
 vim.lsp.enable("ts_ls") -- :MasonInstall typescript-language-server
